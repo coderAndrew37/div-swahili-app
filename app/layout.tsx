@@ -4,6 +4,8 @@ import { Playfair_Display, DM_Sans } from "next/font/google";
 import { SITE } from "@/constants";
 import "./globals.css";
 import { Footer, Navbar } from "@/components/layout";
+import { UrgencyBanner } from "@/components/ui/UrgencyBanner";
+import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsapp";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -41,6 +43,8 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <FloatingWhatsApp />
+        <UrgencyBanner />
       </body>
     </html>
   );

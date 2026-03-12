@@ -1,4 +1,3 @@
-import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SITE } from "@/constants";
 import type { PricingTier } from "@/types";
 
@@ -7,7 +6,8 @@ interface PricingCardProps {
 }
 
 export function PricingCard({ tier }: PricingCardProps) {
-  const { label, price, unit, featured, perks, cta } = tier;
+  const { label, price, unit, featured, perks, cta, whatsappMessage } = tier;
+  const href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div
@@ -45,15 +45,18 @@ export function PricingCard({ tier }: PricingCardProps) {
         ))}
       </ul>
 
-      <ButtonLink
-        href={`https://wa.me/${SITE.whatsapp}`}
+      <a
+        href={href}
         target="_blank"
         rel="noopener noreferrer"
-        variant={featured ? "primary" : "outline"}
-        className="w-full"
+        className={`block text-center py-3.5 text-sm font-medium tracking-wide transition-colors duration-200 ${
+          featured
+            ? "bg-[#c8a96e] text-[#0a0a0a] hover:bg-white"
+            : "border border-white/15 text-white hover:border-[#c8a96e] hover:text-[#c8a96e]"
+        }`}
       >
         {cta}
-      </ButtonLink>
+      </a>
     </div>
   );
 }

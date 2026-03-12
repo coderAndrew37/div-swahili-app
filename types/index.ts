@@ -26,6 +26,7 @@ export interface PricingTier {
   featured: boolean;
   perks: readonly string[];
   cta: string;
+  whatsappMessage: string;
 }
 
 export interface Resource {
