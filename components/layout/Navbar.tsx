@@ -110,6 +110,7 @@ export function Navbar() {
               <div className="p-6 flex justify-between items-center border-b border-white/5">
                 <span className="text-[#c8a96e] font-serif italic text-lg tracking-wider">Menu</span>
                 <button 
+                aria-label="close menu"
                   onClick={() => setMenuOpen(false)} 
                   className="text-white/50 hover:text-white p-1"
                 >
