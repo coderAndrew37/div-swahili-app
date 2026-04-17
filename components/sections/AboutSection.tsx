@@ -21,16 +21,25 @@ export function AboutSection() {
 }
 
 function TeacherCard() {
+  /**
+   * Main Teacher Portrait from public folder
+   * Path: public/assets/about/teacher-main.jpg
+   */
+  const TEACHER_IMAGE = "/assets/about-div.jpg";
+  const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&q=80";
+
   return (
     <Reveal>
       <div className="relative">
         {/* Main photo */}
         <div className="w-full aspect-[3/4] relative overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&q=80"
-            alt="Swahili teacher"
+            src={TEACHER_IMAGE || FALLBACK_IMAGE}
+            alt="Lead Swahili Instructor"
             fill
+            priority
             className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
           {/* Bottom gradient overlay */}
           <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#0e0e0e] to-transparent" />
@@ -83,7 +92,7 @@ function AboutContent() {
         centered={false}
       />
 
-      <Reveal delay={2}>
+      <Reveal delay={0.2}>
         <p className="text-white/50 leading-relaxed mb-5">
           With a Bachelor's and Master's in Swahili and Communication, and over
           ten years teaching in international schools across Kenya, she brings
@@ -91,7 +100,7 @@ function AboutContent() {
         </p>
       </Reveal>
 
-      <Reveal delay={3}>
+      <Reveal delay={0.3}>
         <p className="text-white/50 leading-relaxed mb-10">
           She currently teaches virtually at the{" "}
           <span className="text-white/80">Language Garage</span> in New York — a
@@ -99,14 +108,14 @@ function AboutContent() {
         </p>
       </Reveal>
 
-      {/* Teaching scene image */}
-      <Reveal delay={3}>
-        <div className="relative w-full h-44 mb-10 overflow-hidden">
+      {/* Static teaching scene image */}
+      <Reveal delay={0.4}>
+        <div className="relative w-full h-44 mb-10 overflow-hidden group">
           <Image
             src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=800&q=80"
             alt="Online teaching session"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-[#0a0a0a]/50" />
           <div className="absolute inset-0 flex items-center justify-center">
