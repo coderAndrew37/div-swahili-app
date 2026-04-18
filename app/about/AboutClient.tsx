@@ -5,6 +5,8 @@ import { GraduationCap, Heart, CheckCircle2, Users, Video } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { Reveal } from "@/components/ui/Reveal";
+import { ButtonLink } from "@/components/ui/ButtonLink"; // Assuming you have this component
+import { SITE } from "@/constants";
 
 export default function AboutClient() {
   return (
@@ -14,19 +16,29 @@ export default function AboutClient() {
         heading={
           <>
             Shaping Minds,{" "}
-            <span className="italic text-[#c8a96e]">Touching Hearts.</span>
+            <span className="italic text-gold">Touching Hearts.</span>
           </>
         }
         subheading="Divinar Nyang'arisa is a native Kiswahili speaker and TSC-registered 
           educator with over a decade of experience bridging the gap between African 
           heritage and global learners."
-        bg={{ type: "image", src: "/assets/client-hero.jpeg", alt: "Divinar Nyang'arisa teaching a Swahili lesson" }}
+        bg={{ 
+          type: "image", 
+          src: "/assets/client-hero.jpeg", 
+          alt: "Divinar Nyang'arisa teaching a Swahili lesson" 
+        }}
+        cta={
+          <>
+            <ButtonLink href="/contact">Book a Session</ButtonLink>
+            <ButtonLink href="/services" variant="outline">Explore Services</ButtonLink>
+          </>
+        }
       />
 
       {/* Professional background */}
       <SectionWrapper bg="secondary">
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          <div className="relative aspect-[4/5] overflow-hidden border border-white/10">
+          <div className="relative aspect-4/5 overflow-hidden border border-white/10">
             <Image
               src="/assets/about-div.jpg"
               alt="Divinar Nyang'arisa teaching a Swahili lesson"
@@ -35,7 +47,7 @@ export default function AboutClient() {
               sizes="(max-width: 768px) 100vw, 50vw"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
           </div>
 
           <div className="space-y-8">
@@ -46,19 +58,19 @@ export default function AboutClient() {
             <div className="grid gap-6">
               {[
                 {
-                  icon: <GraduationCap className="text-[#c8a96e]" size={24} />,
+                  icon: <GraduationCap className="text-gold" size={24} />,
                   title: "Genuinely academic",
                   description:
                     "Currently pursuing an MA in Swahili & Communication, building on a B.Ed in Kiswahili & Geography.",
                 },
                 {
-                  icon: <Users className="text-[#c8a96e]" size={24} />,
+                  icon: <Users className="text-gold" size={24} />,
                   title: "10+ years in the field",
                   description:
                     "A decade of instruction at elite British International Schools and global platforms like Language Garage, NYC.",
                 },
                 {
-                  icon: <Video className="text-[#c8a96e]" size={24} />,
+                  icon: <Video className="text-gold" size={24} />,
                   title: "Built for the digital age",
                   description:
                     "Fluent in Zoom, Google Classroom, and Class Dojo — the lesson always feels live, never like a recorded lecture.",
@@ -108,24 +120,42 @@ export default function AboutClient() {
             </Reveal>
             <div className="flex flex-wrap gap-4">
               <span className="flex items-center gap-2 text-white/80 text-sm">
-                <Heart className="text-[#c8a96e]" size={16} /> Mental health advocate
+                <Heart className="text-gold" size={16} /> Mental health advocate
               </span>
               <span className="flex items-center gap-2 text-white/80 text-sm">
-                <CheckCircle2 className="text-[#c8a96e]" size={16} /> Parenting blogger
+                <CheckCircle2 className="text-gold" size={16} /> Parenting blogger
               </span>
             </div>
           </div>
 
-          <div className="relative aspect-square bg-[#c8a96e]/10 flex items-center justify-center p-12">
+          <div className="relative aspect-square bg-gold/10 flex items-center justify-center p-12">
             <div className="text-center">
-              <p className="text-[#c8a96e] font-serif text-6xl mb-4">5</p>
+              <p className="text-gold font-serif text-6xl mb-4">5</p>
               <p className="text-white/40 uppercase tracking-[0.2em] text-xs">Daughters</p>
               <p className="text-white font-serif mt-2 italic text-lg">
                 Including one set of quadruplets
               </p>
             </div>
-            <div className="absolute inset-0 border border-[#c8a96e]/20 m-4" />
+            <div className="absolute inset-0 border border-gold/20 m-4" />
           </div>
+        </div>
+      </SectionWrapper>
+
+      {/* Final About CTA */}
+      <SectionWrapper bg="secondary">
+        <div className="max-w-2xl mx-auto text-center">
+          <Reveal>
+            <h3 className="text-3xl font-serif text-white mb-6">
+              Inspired to start your <span className="italic text-gold">Swahili journey?</span>
+            </h3>
+            <p className="text-white/60 mb-10">
+              Divinar is currently accepting new students for the upcoming term. 
+              Secure your spot and begin a personalized learning path today.
+            </p>
+            <ButtonLink href={`https://wa.me/${SITE.whatsapp}`} >
+              Start Your Journey
+            </ButtonLink>
+          </Reveal>
         </div>
       </SectionWrapper>
     </main>

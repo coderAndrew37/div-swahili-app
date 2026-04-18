@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://lughastudio.com
+
+# Sitemaps
+Sitemap: https://lughastudio.com/sitemap.xml

@@ -1,5 +1,6 @@
 "use client";
 
+import { PageHero } from "@/components/layout/PageHero";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Reveal } from "@/components/ui/Reveal";
@@ -43,28 +44,28 @@ export default function TestimonialsClient() {
   return (
     <main className="pt-20">
       {/* ── Header ── */}
-      <SectionWrapper bg="primary">
-        <div className="max-w-3xl">
-          <Reveal>
-            <span className="text-[#c8a96e] text-xs tracking-[0.3em] uppercase mb-4 block font-medium">
-              Success Stories
-            </span>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <h1 className="text-5xl md:text-7xl font-serif text-white mb-8 leading-tight">
-              Voices of our <br />
-              <span className="italic text-[#c8a96e]">Global Community.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.3}>
-            <p className="text-white/60 text-xl leading-relaxed">
-              From heritage learners in the diaspora to diplomats in the heart 
-              of Nairobi, see how our methodology is bridging cultures, 
-              one conversation at a time.
-            </p>
-          </Reveal>
-        </div>
-      </SectionWrapper>
+   <PageHero
+        eyebrow="Success Stories"
+        heading={
+          <>
+            Voices of our <br />
+            <span className="italic text-gold">Global Community.</span>
+          </>
+        }
+        subheading="From heritage learners in the diaspora to diplomats in the heart of Nairobi, see how our methodology is bridging cultures, one conversation at a time."
+        cta={
+          <>
+            <ButtonLink href="/contact">Book Your Session</ButtonLink>
+            <ButtonLink href="/services" variant="outline">Explore Services</ButtonLink>
+          </>
+        }
+
+        bg={{ 
+          type: "video", 
+          src: "/assets/video/student-reel.mp4", 
+          
+        }}
+      />
 
       {/* ── Testimonial Grid (Wall of Love) ── */}
       <SectionWrapper bg="secondary">
@@ -86,15 +87,15 @@ export default function TestimonialsClient() {
 
       {/* ── Final CTA ── */}
       <SectionWrapper bg="secondary">
-        <div className="max-w-4xl mx-auto bg-[#0a0a0a] border border-[#c8a96e]/20 p-12 md:p-20 text-center relative overflow-hidden">
+        <div className="max-w-4xl mx-auto bg-[#0a0a0a] border border-gold/20 p-12 md:p-20 text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 opacity-10">
-            <Quote size={120} className="text-[#c8a96e]" />
+            <Quote size={120} className="text-gold" />
           </div>
           
           <Reveal>
             <h2 className="text-3xl md:text-5xl font-serif text-white mb-6">
               Ready to write your <br />
-              <span className="italic text-[#c8a96e]">own story?</span>
+              <span className="italic text-gold">own story?</span>
             </h2>
             <p className="text-white/40 mb-10 max-w-lg mx-auto leading-relaxed">
               Join a community of learners who are discovering the beauty of 
@@ -119,10 +120,10 @@ export default function TestimonialsClient() {
 function TestimonialCard({ name, role, category, content, index }: any) {
   return (
     <Reveal delay={index * 0.1}>
-      <div className="break-inside-avoid p-8 bg-white/[0.02] border border-white/10 hover:border-[#c8a96e]/30 transition-all group relative">
+      <div className="break-inside-avoid p-8 bg-white/[0.02] border border-white/10 hover:border-gold/30 transition-all group relative">
         <div className="flex gap-1 mb-6">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} size={14} className="fill-[#c8a96e] text-[#c8a96e]" />
+            <Star key={i} size={14} className="fill-gold text-gold" />
           ))}
         </div>
         
@@ -135,7 +136,7 @@ function TestimonialCard({ name, role, category, content, index }: any) {
             <h4 className="text-white font-medium">{name}</h4>
             <p className="text-white/30 text-xs uppercase tracking-widest mt-1">{role}</p>
           </div>
-          <span className="text-[#c8a96e] text-[10px] font-bold uppercase tracking-tighter bg-[#c8a96e]/10 px-2 py-1">
+          <span className="text-gold text-[10px] font-bold uppercase tracking-tighter bg-gold/10 px-2 py-1">
             {category}
           </span>
         </div>
@@ -147,7 +148,7 @@ function TestimonialCard({ name, role, category, content, index }: any) {
 function ImpactStat({ icon, label, value }: any) {
   return (
     <div className="text-center space-y-3">
-      <div className="text-[#c8a96e]/40 flex justify-center">{icon}</div>
+      <div className="text-gold/40 flex justify-center">{icon}</div>
       <h3 className="text-3xl md:text-5xl font-serif text-white">{value}</h3>
       <p className="text-white/30 text-[10px] uppercase tracking-[0.3em] font-bold">{label}</p>
     </div>

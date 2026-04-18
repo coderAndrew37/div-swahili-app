@@ -6,6 +6,7 @@ import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { StatBar } from "@/components/layout/StatBar";
 import { CtaBlock } from "@/components/layout/CTABlock";
 import { Reveal } from "@/components/ui/Reveal";
+import { ButtonLink } from "@/components/ui/ButtonLink";
 import { SITE } from "@/constants";
 
 const STATS = [
@@ -44,12 +45,18 @@ export default function CorporateClient() {
         heading={
           <>
             High-stakes Swahili{" "}
-            <span className="italic text-[#c8a96e]">for global leaders.</span>
+            <span className="italic text-gold">for global leaders.</span>
           </>
         }
         bg={{ type: "image", src: "/assets/client-hero.jpeg", alt: "Corporate Swahili training at Lugha Studio" }}
+        cta={
+          <>
+            <ButtonLink href={`mailto:${SITE.email}`}>Request a Proposal</ButtonLink>
+            <ButtonLink href={`https://wa.me/${SITE.whatsapp}`} variant="outline">Speak with Divinar</ButtonLink>
+          </>
+        }
       >
-        <p className="text-white/50 text-xl leading-relaxed max-w-2xl mt-4 border-l-2 border-[#c8a96e]/30 pl-8">
+        <p className="text-white/50 text-xl leading-relaxed max-w-2xl mt-4 border-l-2 border-gold/30 pl-8">
           Specialised linguistic training and cultural protocol for diplomats, UN
           personnel, and expatriate executives navigating the East African
           professional landscape.
@@ -63,8 +70,8 @@ export default function CorporateClient() {
         <div className="grid lg:grid-cols-3 gap-8">
           {MODULES.map((m) => (
             <Reveal key={m.title}>
-              <div className="p-10 bg-white/[0.02] border border-white/5 hover:border-[#c8a96e]/30 transition-all h-full group">
-                <div className="mb-6 text-[#c8a96e] group-hover:scale-110 transition-transform duration-500">
+              <div className="p-10 bg-white/[0.02] border border-white/5 hover:border-gold/30 transition-all h-full group">
+                <div className="mb-6 text-gold group-hover:scale-110 transition-transform duration-500">
                   {m.icon}
                 </div>
                 <h3 className="text-xl font-serif text-white mb-4">{m.title}</h3>
@@ -98,16 +105,16 @@ export default function CorporateClient() {
                 "Dedicated reporting for corporate sponsorship and reimbursement.",
               ].map((text) => (
                 <div key={text} className="flex gap-3 items-start text-white/70 text-sm">
-                  <span className="text-[#c8a96e] mt-0.5">→</span>
+                  <span className="text-gold mt-0.5">→</span>
                   <span>{text}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative p-1 bg-gradient-to-br from-[#c8a96e]/20 to-transparent">
+          <div className="relative p-1 bg-gradient-to-br from-gold/20 to-transparent">
             <div className="bg-[#0a0a0a] p-10 space-y-8 border border-white/5">
-              <Award className="text-[#c8a96e]" size={40} />
+              <Award className="text-gold" size={40} />
               <h3 className="text-xl font-serif text-white">Why Lugha Studio?</h3>
               <p className="text-white/40 text-sm leading-relaxed italic">
                 "Divinar brings experience from elite British International Schools
@@ -115,8 +122,8 @@ export default function CorporateClient() {
                 that meets institutional requirements."
               </p>
               <div className="flex gap-4">
-                <ShieldCheck className="text-[#c8a96e]/40" size={20} />
-                <FileCheck className="text-[#c8a96e]/40" size={20} />
+                <ShieldCheck className="text-gold/40" size={20} />
+                <FileCheck className="text-gold/40" size={20} />
               </div>
             </div>
           </div>

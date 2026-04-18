@@ -1,6 +1,6 @@
 "use client";
 
-import { HelpCircle, MessageCircle } from "lucide-react";
+import { HelpCircle, MessageCircle, ChevronDown } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
@@ -66,12 +66,18 @@ export default function FaqClient() {
         heading={
           <>
             Everything you{" "}
-            <span className="italic text-[#c8a96e]">need to know.</span>
+            <span className="italic text-gold">need to know.</span>
           </>
         }
         subheading="Transparent answers about how the lessons work, pricing, and how we
           bring the spirit of Nairobi to your screen — wherever you are."
-        bg={{ type: "color", value: "primary" }}
+        bg={{ type: "image", src: "/assets/client-hero.jpeg", alt: "Frequently asked questions about Swahili lessons" }}
+        cta={
+          <>
+            <ButtonLink href="/pricing">View Pricing</ButtonLink>
+            <ButtonLink href="/contact" variant="outline">Book Trial Session</ButtonLink>
+          </>
+        }
       />
 
       <SectionWrapper bg="secondary">
@@ -79,7 +85,7 @@ export default function FaqClient() {
           {FAQ_DATA.map((group) => (
             <div key={group.category} className="mb-16 last:mb-0">
               <Reveal>
-                <h2 className="text-[#c8a96e] text-xs uppercase tracking-[0.4em] font-bold mb-8 opacity-50">
+                <h2 className="text-gold text-xs uppercase tracking-[0.4em] font-bold mb-8 opacity-50">
                   {group.category}
                 </h2>
               </Reveal>
@@ -94,8 +100,8 @@ export default function FaqClient() {
       </SectionWrapper>
 
       <SectionWrapper bg="primary">
-        <div className="max-w-4xl mx-auto text-center py-12 border border-white/5 bg-white/[0.02]">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#c8a96e]/10 text-[#c8a96e] mb-6">
+        <div className="max-w-4xl mx-auto text-center py-12 border border-white/5 bg-white/2">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold/10 text-gold mb-6">
             <HelpCircle size={32} />
           </div>
           <h3 className="text-2xl font-serif text-white mb-4">Still have a question?</h3>

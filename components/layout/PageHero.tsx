@@ -16,6 +16,7 @@ interface PageHeroProps {
   bg: HeroBg;
   align?: "left" | "center";
   children?: ReactNode;
+  cta?: ReactNode;
 }
 
 export function PageHero({
@@ -25,6 +26,7 @@ export function PageHero({
   bg,
   align = "left",
   children,
+  cta,
 }: PageHeroProps) {
   const bgClass =
     bg.type === "color"
@@ -62,7 +64,7 @@ export function PageHero({
         <div className={align === "center" ? "max-w-3xl mx-auto" : "max-w-4xl"}>
           {eyebrow && (
             <Reveal>
-              <span className="text-[#c8a96e] text-xs tracking-[0.3em] uppercase mb-4 block font-medium">
+              <span className="text-gold text-xs tracking-[0.3em] uppercase mb-4 block font-medium">
                 {eyebrow}
               </span>
             </Reveal>
@@ -79,7 +81,18 @@ export function PageHero({
               </div>
             </Reveal>
           )}
+          
+          {/* Custom Content slot */}
           {children && <Reveal delay={0.35}>{children}</Reveal>}
+
+          {/* Dedicated CTA slot */}
+          {cta && (
+            <Reveal delay={0.35}>
+              <div className={`mt-10 flex gap-4 ${align === "center" ? "justify-center" : ""}`}>
+                {cta}
+              </div>
+            </Reveal>
+          )}
         </div>
       </div>
     </section>

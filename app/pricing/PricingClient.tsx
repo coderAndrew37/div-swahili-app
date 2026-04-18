@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Globe, HelpCircle, MessageSquare, ShieldCheck, Zap } from "lucide-react";
+import { Check, Globe, HelpCircle, MessageSquare, ShieldCheck, Zap, ArrowDown } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -24,6 +24,10 @@ const ADULT_FEATURES = [
 ];
 
 export default function PricingClient() {
+  const scrollToPricing = () => {
+    document.getElementById("pricing-cards")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <main className="pt-20">
       <PageHero
@@ -31,18 +35,26 @@ export default function PricingClient() {
         heading={
           <>
             Start your{" "}
-            <span className="italic text-[#c8a96e]">Swahili journey.</span>
+            <span className="italic text-gold">Swahili journey.</span>
           </>
         }
         subheading="No hidden fees. No long-term contracts. Just world-class instruction 
           from a TSC-registered educator, live from the heart of Nairobi."
         bg={{ type: "video", src: "/assets/video/student-reel.mp4" }}
         align="center"
+        cta={
+          <button 
+            onClick={scrollToPricing}
+            className="flex items-center gap-2 text-white/80 hover:text-gold transition-colors uppercase tracking-[0.2em] text-xs font-bold mx-auto"
+          >
+            View packages <ArrowDown size={14} />
+          </button>
+        }
       />
 
       {/* Cards */}
       <SectionWrapper bg="secondary">
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div id="pricing-cards" className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <PricingCard
             title="Children & teens"
             age="5–18 years"
@@ -69,7 +81,7 @@ export default function PricingClient() {
             { icon: <MessageSquare size={20} />, text: "Daily support" },
           ].map((v) => (
             <div key={v.text} className="flex flex-col items-center gap-3 text-center">
-              <div className="text-[#c8a96e] opacity-60">{v.icon}</div>
+              <div className="text-gold opacity-60">{v.icon}</div>
               <span className="text-white/40 text-[10px] uppercase tracking-[0.2em] font-bold">
                 {v.text}
               </span>
@@ -88,7 +100,7 @@ export default function PricingClient() {
               — available for specialised projects across the Swahili-speaking world.
             </p>
           </Reveal>
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[#c8a96e] text-sm uppercase tracking-widest font-medium mb-12">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-gold text-sm uppercase tracking-widest font-medium mb-12">
             {["Translation", "Transcription", "Interpretation", "Tourist guiding"].map((s, i, arr) => (
               <div key={s} className="flex gap-8 items-center">
                 <span>{s}</span>
@@ -127,7 +139,7 @@ export default function PricingClient() {
             ].map((item) => (
               <div key={item.q} className="border-b border-white/5 pb-6">
                 <h4 className="text-white font-serif text-lg mb-2 flex gap-2 items-center">
-                  <HelpCircle size={16} className="text-[#c8a96e]/40 shrink-0" />
+                  <HelpCircle size={16} className="text-gold/40 shrink-0" />
                   {item.q}
                 </h4>
                 <p className="text-white/40 leading-relaxed text-sm pl-6">{item.a}</p>
@@ -160,13 +172,13 @@ function PricingCard({
       <div
         className={`p-10 border transition-all duration-500 h-full ${
           highlight
-            ? "border-[#c8a96e] bg-[#c8a96e]/5"
+            ? "border-gold bg-gold/5"
             : "border-white/10 bg-white/[0.02] hover:border-white/30"
         }`}
       >
         <div className="mb-8">
           <h3 className="text-white text-2xl font-serif mb-1">{title}</h3>
-          <p className="text-[#c8a96e] text-xs uppercase tracking-widest font-bold">{age}</p>
+          <p className="text-gold text-xs uppercase tracking-widest font-bold">{age}</p>
         </div>
         <div className="mb-8">
           <div className="flex items-baseline gap-1">
@@ -179,7 +191,7 @@ function PricingCard({
         <ul className="space-y-4 mb-10 border-t border-white/5 pt-8">
           {features.map((f) => (
             <li key={f} className="flex gap-3 text-sm text-white/70">
-              <Check size={18} className="text-[#c8a96e] shrink-0" />
+              <Check size={18} className="text-gold shrink-0" />
               {f}
             </li>
           ))}

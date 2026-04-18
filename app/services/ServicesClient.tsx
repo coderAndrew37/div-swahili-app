@@ -39,13 +39,20 @@ export default function ServicesClient() {
         heading={
           <>
             Expertise for every{" "}
-            <span className="italic text-[#c8a96e]">Swahili need.</span>
+            <span className="italic text-gold">Swahili need.</span>
           </>
         }
         subheading="From foundational literacy for children to high-level diplomatic
           interpretation, we provide academic-grade linguistic services tailored
           to the global stage."
-        bg={{ type: "color", value: "primary" }}
+
+          cta={
+            <>
+              <ButtonLink href="/methodology">How We Work</ButtonLink>
+              <ButtonLink href="/pricing" variant="outline">View pricing details</ButtonLink>
+            </>
+          }
+        bg={{ type: "video", src: "/assets/video/student-reel.mp4" }}
       />
 
       {/* Core teaching tracks */}
