@@ -2,22 +2,21 @@
 module.exports = {
   siteUrl: 'https://lughastudio.com',
   generateRobotsTxt: true,
-  generateIndexSitemap: false, // Set to true if you have thousands of pages
-  sitemapSize: 5000,
   exclude: ['/admin', '/api/*'],
-  transform: async (config, path) => {
-    return {
+  
+  // Explicitly define your routes
+  additionalPaths: async (config) => {
+    const pages = [
+      '/', '/about', '/contact', '/corporate', '/faq', 
+      '/legal', '/methodology', '/play', '/pricing', 
+      '/resources', '/services', '/testimonials'
+    ];
+    
+    return pages.map((path) => ({
       loc: path,
-      changefreq: config.changefreq,
-      priority: config.priority,
-      lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
-      // Ensure images are included for search indexing
-      images: [
-      {
-        loc: 'https://lughastudio.com/og-image.jpg',
-        title: 'Lugha Studio - Swahili Learning',
-      }
-    ],
-    };
+      changefreq: 'weekly',
+      priority: path === '/' ? 1.0 : 0.7,
+      lastmod: new Date().toISOString(),
+    }));
   },
 };
