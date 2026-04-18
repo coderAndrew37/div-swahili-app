@@ -10,7 +10,7 @@ export function ContactSection() {
       {/* ── Full-bleed Nairobi background CTA ── */}
       <div className="relative py-32 px-6 overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1589825743338-c55ce6986d0b?w=1600&q=75"
+          src="/assets/nairobi-city.webp"
           alt="Nairobi Kenya"
           fill
           className="object-cover object-center"

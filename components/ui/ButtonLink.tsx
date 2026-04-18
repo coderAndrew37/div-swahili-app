@@ -1,9 +1,11 @@
-import { type AnchorHTMLAttributes } from "react";
+"use client";
+
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 type ButtonVariant = "primary" | "outline" | "ghost";
 
-interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface ButtonLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: ButtonVariant;
   children: React.ReactNode;
 }
@@ -18,15 +20,28 @@ export function ButtonLink({
   variant = "primary",
   children,
   className,
+  href,
   ...props
 }: ButtonLinkProps) {
+  // Determine if it's an internal link
+  const isInternal = href && (href.startsWith("/") || href.startsWith("#"));
+
+  const baseStyles = "inline-flex items-center justify-center gap-2 px-8 py-4 text-sm tracking-wide transition-colors duration-200";
+
+  if (isInternal) {
+    return (
+      <Link href={href!} className={cn(baseStyles, variants[variant], className)} {...props}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <a
-      className={cn(
-        "inline-flex items-center justify-center gap-2 px-8 py-4 text-sm tracking-wide transition-colors duration-200",
-        variants[variant],
-        className,
-      )}
+      href={href}
+      className={cn(baseStyles, variants[variant], className)}
+      target="_blank"
+      rel="noopener noreferrer"
       {...props}
     >
       {children}

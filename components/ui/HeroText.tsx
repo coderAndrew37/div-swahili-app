@@ -50,7 +50,7 @@ export function HeroText() {
         >
           Start Learning Today
         </ButtonLink>
-        <ButtonLink href="#about" variant="outline">
+        <ButtonLink href="/about" variant="outline">
           Meet the Teacher
         </ButtonLink>
       </motion.div>
